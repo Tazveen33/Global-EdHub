@@ -2,9 +2,8 @@
 This is a generative AI based college recommendation system used to leverage the power of AI to change the educational landscape globally.
 **Technologies used**:
 Node js
-
 Mongo DB
-GenAi
+GenAI
 Embedded JS
 **Required libraries**:
 express: A web framework for Node.js.
