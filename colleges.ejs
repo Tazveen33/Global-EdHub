@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Top Universities in India</title>
+        <style>
+            body{
+    font-family: "Arial", sans-serif;
+    background:url("https://img.freepik.com/free-vector/gradient-light-peach-background_23-2150246354.jpg");
+    background-size: cover;
+}
+#images{
+    font-family: "Arial", sans-serif;
+        margin-bottom: 70px;
+        padding: 0;
+        align-items: center;
+        margin: 0;
+          }
+#header
+{
+    margin-top: 0%;
+    display: flex;
+    align-items: center;
+}
+#header h1{
+    color: black;
+    margin-left:500px;
+}
+
+#header .button
+{
+    margin-left: auto;
+    float: right;
+    height:50px;
+    width:120px;
+    background-color: white;
+    border-radius: 30%;
+    transition-duration: 0.5s;
+    border: 2px solid #3a405a;
+}
+
+.button:hover {
+    background-color:#3a405a;
+    color: white;
+  }
+
+
+#images .image-container
+{
+    margin-left: 50px;
+    margin-top: 10px;
+}
+      
+/*.grid-item {
+width: 30%;
+margin: 10px;
+box-sizing: border-box;
+overflow: hidden;
+border: 1px solid #ddd;
+border-radius: 5px;
+}
+      
+.grid-item img {
+width: 100%;
+height: auto;
+display: block;
+}*/
+
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+#images img{
+    width: 300px;
+    height: 300px;
+    border: 5px solid white;
+}
+
+.image-container {
+    position: relative;
+    display: inline-block;
+}
+
+/* Style for the image */
+.image-container img {
+    width: 100%; /* Make the image responsive */
+    height: auto;
+    display: block;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Style for the text overlay */
+.image-container .overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: smaller;
+    transform: translate(-50%, -50%);
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s ease;
+    color:white;
+    text-align: center;
+    
+}
+
+/* Show the text overlay on hover */
+.image-container:hover .overlay-text {
+    opacity: 1;
+}
+.image-container:hover img{
+    opacity: 0.2 ;
+}
+
+        </style>
+    </head>
+    <body>
+        <div id="header">
+            <center><h1> TOP 15 UNIVERSITIES ACROSS INDIA</h1></center>
+            <button class="button" onclick="gohome()">Back to Home</button>
+        </div>
+    <div id="images">
+    
+        <div class="wrapper">
+            <div class="image-container">
+                    <img src=data:image/jpeg;base64,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  alt="Indian Institute of Technology,Madras">
+                <div class="overlay-text">
+                    <h1>Indian Institute of Technology,Madras</h1>
+                    <p>TamilNadu</p>
+                </div>
+            </div>
+    
+            <div class="image-container">
+                <img src="https://static.toiimg.com/thumb/msid-103032681,width-1280,height-720,resizemode-4/103032681.jpg"  alt="	Indian Institute of Technology,Bombay">
+                <div class="overlay-text">
+                    <h1>	Indian Institute of Technology,Bombay</h1>
+                    <p>Maharashtra</p>
+                </div>
+            </div>
+    
+            <div class="image-container">
+                <img src="https://cdn.thewire.in/wp-content/uploads/2018/01/11185103/iit-kanpur.jpg"  alt="Indian Institute of Technology,Kanpur">
+                <div class="overlay-text">
+                    <h1>Indian Institute of Technology,Kanpur</h1>
+                    <p>Uttarpradesh</p>
+                </div>
+            </div>
+    
+            <div class="image-container">
+                <img src="https://images.hindustantimes.com/img/2022/05/02/1600x900/1c0990c8-286b-11ec-8390-9108a6051a41_1633720405716_1651516568332.jpg"  alt="University of Delhi">
+                <div class="overlay-text">
+                    <h1>University of Delhi</h1>
+                    <p>New Delhi</p>
+                </div>
+            </div>
+    
+            <div class="image-container">
+                <img src="https://static.theprint.in/wp-content/uploads/2017/09/IIT_Delhi_Entrance-e1531132159388.jpg"  alt="Indian Institute of Technology,Delhi">
+                <div class="overlay-text">
+                    <h1>Indian Institute of Technology,Delhi<h1>
+                    <p>New Delhi</p>
+                </div>
+            </div>
+    
+            <div class="image-container">
+                <img src="https://images.shiksha.com/mediadata/images/articles/1681298653phphbJW9n.jpeg"  alt="Indian Institute of Technology,Kharagpur">
+                <div class="overlay-text">
+                    <h1>Indian Institute of Technology,Kharagpur</h1>
+                    <p>West Bengal</p>
+                </div>
+            </div>
+    
+            <div class="image-container">
+                <img src="https://images.collegedunia.com/public/image/2_bcfc93f2b0aa3710a0ac73977e2414c3.jpeg?tr=w-512,h-341,c-force"  alt="	Lovely Professional University">
+                <div class="overlay-text">
+                    <h1>Lovely Professional University</h1>
+                    <p>Punjab</p>
+                </div>
+            </div>
+    
+            <div class="image-container">
+                <img src="https://vit.ac.in/system/files/vitmb_0.jpg"  alt="Vellore Institute of Technology">
+                <div class="overlay-text">
+                    <h1>Vellore Institute of Technology</h1>
+                    <p>TamilNadu</p>
+                </div>
+            </div>
+    
+            <div class="image-container">
+                <img src="https://media.licdn.com/dms/image/C4D1BAQH0_UeKoteJyA/company-background_10000/0/1583221367975?e=2147483647&v=beta&t=JP71T7b8w3iT-bb1TtdcqnsJYp7hAfc13Ct8lFENptQ"  alt="Indian Institute of Science">
+                <div class="overlay-text">
+                    <h1>Indian Institute of Science,Bengaluru</h1>
+                    <p>Karnataka</p>
+                </div>
+            </div>
+    
+            <div class="image-container">
+                <img src="https://images.shiksha.com/mediadata/images/articles/1584704603phpyv6Sd7.jpeg"  alt="SRM Institute of Science and Technology">
+                <div class="overlay-text">
+                    <h1>SRM Institute of Science and Technology,Chennai</h1>
+                    <p>TamilNadu</p>
+                </div>
+            </div>
+    
+            <div class="image-container">
+                <img src="phule.jfif"  alt="Savitribai Phule Pune University">
+                <div class="overlay-text">
+                    <h1>Savitribai Phule Pune University</h1>
+                    <p>Maharashtra</p>
+                </div>
+            </div>
+    
+            <div class="image-container">
+                <img src="manipal.jfif"  alt="Manipal Academy of Higher Education">
+                <div class="overlay-text">
+                    <h1>Manipal Academy of Higher Education</h1>
+                    <p>Karnataka</p>
+                </div>
+            </div>
+    
+            <div class="image-container">
+                <img src="amirta.jfif"  alt="Amrita Vishwa Vidyapeetham">
+                <div class="overlay-text">
+                    <h1>Amrita Vishwa Vidyapeetham</h1>
+                    <p>TamilNadu</p>
+                </div>
+            </div>
+    
+            <div class="image-container">
+                <img src="aiims.jfif"  alt="All India Institute of Medical Sciences,Delhi">
+                <div class="overlay-text">
+                    <h1>All India Institute of Medical Sciences,Delhi</h1>
+                    <p>New Delhi</p>
+                </div>
+            </div>
+    
+            <div class="image-container">
+                <img src="tifr.jfif"  alt="Tata Institute of Fundamental Research,Mumbai">
+                <div class="overlay-text">
+                    <h1>Tata Institute of Fundamental Research</h1>
+                    <p>Maharashtra</p>
+                </div>
+            </div>
+    
+            <div class="image-container">
+                <img src="nmims.jfif"  alt="Narsee Monjee Institute of Management and Higher Studies">
+                <div class="overlay-text">
+                    <h1>Narsee Monjee Institute of Management and Higher Studies</h1>
+                    <p>TamilNadu</p>
+                </div>
+            </div>
+    
+            <div class="image-container">
+                <img src="bits.jfif"  alt="BITS Pilani">
+                <div class="overlay-text">
+                    <h1>BITS Pilani</h1>
+                    <p>Rajasthan</p>
+                </div>
+            </div>
+    
+            <div class="image-container">
+                <img src="iiit.jfif" alt="International Institute of Information Technology, Hyderabad">
+                <div class="overlay-text">
+                    <h1>International Institute of Information Technology, Hyderabad</h1>
+                    <p>Telangana</p>
+                </div>
+            </div>
+    
+            <div class="image-container">
+                <img src="kerala.jfif"  alt="	University of Kerala">
+                <div class="overlay-text">
+                    <h1>University of Kerala</h1>
+                    <p>	Kerala</p>
+                </div>
+            </div>
+    
+            <div class="image-container">
+                <img src="amity.jfif"  alt="Amity University">
+                <div class="overlay-text">
+                    <h1>Amity University</h1>
+                </div>
+            </div>
+    </div>
+    <script>
+    function gohome()
+    {
+        window.location.href="samp.html";
+    }
+    </script>
+               
+        <!--<footer>
+            &copy; 2024 College Name. All rights reserved.
+        </footer>-->
+    
+    </body>
+    </html>

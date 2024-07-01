@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page1</title>
+    <style>
+        /* General body styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            background-image: url('https://uis.unesco.org/sites/default/files/wysiwyg_media/global-education-data-portal-blog-image-reduced.jpg');
+            background-repeat: no-repeat;
+            background-size: cover; /* Add this line */
+        }
+
+        #recommendationForm {
+            background-color: rgba(255, 255, 255, 0.1); /* Adjusted for transparency */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease-in-out;
+            max-width: 500px;
+            margin: 20px;
+        }
+    
+        /* Styles for the welcome screen */
+        #welcomeScreen {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #c1d3fe;
+            color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            animation: fadeOut 4s forwards;
+            animation-delay: 2s;
+        }
+    
+        /* Fade out animation for the welcome screen */
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; visibility: hidden; }
+        }
+    
+        /* Form styles */
+        #recommendationForm {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease-in-out;
+            max-width: 500px;
+            margin: 20px;
+        }
+    
+        h1 {
+            color:#012a4a;
+            
+        }
+    
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #012a4a;
+        }
+    
+        input[type=text] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    
+        button {
+            background-color: #012a4a;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+    
+        button:hover {
+            background-color: #70a288;
+        }
+    
+        ul {
+            background-color: #b6ccfe;
+            padding: 15px;
+            border-radius: 5px;
+            color: #012a4a;
+        }
+    
+        ul li {
+            margin-bottom: 5px;
+        }
+    
+        #responseMessage {
+            margin-top: 20px;
+        }
+        #responseMessage {
+            background-color: white; /* Sets the background color to white */
+            padding: 15px; /* Adds some padding around the text for better readability */
+            border-radius: 5px; /* Optional: Rounds the corners of the background */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Optional: Adds a subtle shadow for depth */
+            margin-top: 20px; /* Keeps distance from the form above */
+            color: black; /* Ensures the text is black for high contrast against the white background */
+        }
+        /* Style for errors */
+        .error {
+            color: red;
+        }
+    </style>
+    
+</head>
+<body>
+    <div id="welcomeScreen">
+        <h2>Welcome to Global Ed-Hub</h2>
+        <p>Find your perfect college match!</p>
+    </div>
+    
+    <form method="post" id="recommendationForm">
+        <center><h1>COLLEGE RECOMMENDATION</h1></center>
+        <label for="course">Enter Preferred Course Name:</label>
+        <input type="text" id="course" name="course"><br><br>
+        <label for="major">Enter Preferred Major Name:</label>
+        <input type="text" id="major" name="major"><br><br>
+        <label for="country">Enter your Preferred Country:</label>
+        <input type="text" id="country" name="country"><br><br>
+        <label for="budget">Enter your Preferred Budget Range(Low/Medium/High):</label>
+        <input type="text" id="budget" name="budget"><br><br>
+        <label for="expense">Enter the desired range of living expense of the country:</label>
+        <input type="text" id="expense" name="expense"><br><br>
+        <label for="weather">Preferred Weather:</label>
+        <input type="text" id="weather" name="weather"><br><br>
+        <button type="submit">Submit</button>           
+        <ul>
+            <p>Budget Range:</p>
+            <li>Low: less than $6000/year</li>
+            <li>Medium: $6500-$18000/year</li>
+            <li>High: above $18000/year</li>
+        </ul>
+        
+    </form>
+    <div id="responseMessage"></div>
+    <script>
+        document.getElementById('recommendationForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+    
+            var formData = {
+                course: document.getElementById('course').value,
+                major: document.getElementById('major').value,
+                country: document.getElementById('country').value,
+                budget: document.getElementById('budget').value,
+                expense: document.getElementById('expense').value,
+                weather: document.getElementById('weather').value
+            };
+    
+            fetch('/recommendationEndpoint', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                let responseHtml = `<p><strong>Success:</strong> ${data.message}</p>`;
+                if (data.recommendation) {
+                    responseHtml += `<p><strong>Recommendation:</strong> ${data.recommendation.replace(/\n/g, '<br>')}</p>`;
+                }
+                document.getElementById('responseMessage').innerHTML = responseHtml;
+            })
+            .catch(error => {
+                document.getElementById('responseMessage').innerHTML = `<p><strong>Error:</strong> ${error.message}</p>`;
+                console.error('Error:', error);
+            });
+        });
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: "Playfair Display", serif;
+            font-optical-sizing: auto;
+            background-color: #8a5a44;
+            color: rgba(211,190,173,255);
+        }
+        @keyframes emerge {
+            from {opacity: 0; transform: translateY(20px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+        .animated {
+            animation: emerge 2s ease-out;
+        }
+        .title, .description, .image-container {
+            visibility: hidden;
+        }
+        .title.animated {
+            animation-delay: 0.5s;
+        }
+        .description.animated {
+            animation-delay: 2s;
+        }
+        .image-container.animated {
+            animation-delay: 3.5s;
+        }
+        h1 {
+            text-align: center;
+            color: rgba(233,210,191,255);
+        }
+        p{
+          font-size: 20px;
+        }
+        .content {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 20px;
+        }
+        .description {
+            max-width: 50%;
+            color: rgba(233,210,191,255);
+        }
+        .image-container {
+            width: 400px;
+            height: 300px; /* Adjust as needed */
+            
+        }
+        .image-container img {
+              width: 400px;
+              height: 100%;
+              object-fit: contain; /* This will ensure the full image is shown */
+              display: block; /* Removes the bottom margin/gap */
+          }
+    </style>
+</head>
+<body>
+
+<div class="title animated">
+    <h1>About Us</h1>
+</div>
+<div class="content">
+    <div class="description animated">
+        <p>Welcome to Global Ed-Hub, where your journey to finding the perfect college begins. In a world brimming with educational opportunities, making the right choice can be daunting. That's where we step in—Global Ed-Hub is your premier destination for personalized college recommendations, driven by cutting-edge technology and a deep understanding of the global educational landscape.</p>
+          <p>
+          Our Mission
+          At Global Ed-Hub, we are committed to simplifying the college selection process for students worldwide. We understand that choosing a college is a decision that shapes your future. Thus, our mission is to empower students with comprehensive, AI-driven insights into colleges that align with their academic preferences, budget, and lifestyle choices.
+        </p>
+        <p>
+          How We Do It
+          Leveraging the latest in artificial intelligence and data analysis, Global Ed-Hub offers a unique platform where students can input their preferences—ranging from preferred courses and majors to budget constraints and desired living conditions. Our proprietary algorithm then processes this data to provide a curated list of colleges that match the student's criteria, complete with detailed recommendations to guide their decision-making process.
+        </p>
+        <p>
+          Our Vision
+          We envision a world where every student has access to the information and tools needed to make informed decisions about their education. Global Ed-Hub aims to be at the forefront of educational consultancy, bridging the gap between students and their ideal academic institutions across the globe.
+        </p>
+        <p>
+          Why Choose Us?
+          Personalized Recommendations: Tailored suggestions based on your individual preferences and requirements.
+          Global Reach: Access to a wide array of colleges and universities from around the world.
+          Simplicity and Accessibility: An easy-to-use interface and process that demystifies college selection.
+          Data-Driven Insights: Our recommendations are backed by thorough research and cutting-edge AI technology.
+          Join Us on Your Journey
+          Whether you're just beginning to explore your college options or you're ready to make a decision, Global Ed-Hub is here to support you every step of the way. Explore our platform to discover how we can help you navigate your path to academic and personal growth.
+          
+          </p>
+
+
+          <h1>"Empowering Your Educational Journey"</h1>
+          <h1>- Bhavani K & Tazveen Zanab </h1>
+    </div>
+    <div class="image-container animated">
+        <!-- Replace with your image -->
+        <img src="jj.png" alt="About Us Image">
+    </div>
+</div>
+
+<script>
+    // Simple script to add visibility to elements after animation starts
+    document.addEventListener("DOMContentLoaded", function() {
+        const elements = document.querySelectorAll('.animated');
+        elements.forEach(function(element) {
+            setTimeout(() => {
+                element.style.visibility = 'visible';
+            }, 100); // slightly delay to sync with CSS animation
+        });
+    });
+</script>
+
+</body>
+</html>
